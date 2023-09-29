@@ -1,12 +1,11 @@
-import {
-  StyledTitle,
-  StyledContact,
-  StyledContactLi,
-  StyledSpan,
-  StyledBtnDelete,
-} from '../styles/App.Styled';
+import { StyledTitle, StyledContact } from '../../styles/App.Styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeContact } from 'redux/contactsSlice';
+import {
+  StyledBtnDelete,
+  StyledContactLi,
+  StyledSpan,
+} from './ContactList.styled';
 
 export const ContactList = () => {
   const { contacts } = useSelector(state => state.contacts);

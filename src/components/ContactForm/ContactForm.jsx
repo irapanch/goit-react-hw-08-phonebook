@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 
-import {
-  StyledForm,
-  StyledTitle,
-  StyledDesc,
-  StyledBtn,
-} from '../styles/App.Styled';
+import { StyledTitle, StyledDesc } from '../../styles/App.Styled';
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/contactsSlice';
+import { StyledForm, StyledBtn } from './ContactForm.styled';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');

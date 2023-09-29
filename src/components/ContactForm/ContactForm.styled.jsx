@@ -1,17 +1,5 @@
 import { styled } from 'styled-components';
-
-export const StyledTitle = styled.h1`
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-`;
-export const StyledDesc = styled.p`
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-weight: ${props => props.theme.fontWeights.medium};
-`;
-
-export const StyledContact = styled.div`
+export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
 
@@ -23,4 +11,10 @@ export const StyledContact = styled.div`
   background-color: ${props => props.theme.colors.cardBackground};
 
   padding: 20px;
+`;
+export const StyledBtn = styled.button`
+  width: 200px;
+  background-color: ${props => props.theme.colors.background};
+
+  margin-top: 20px;
 `;
