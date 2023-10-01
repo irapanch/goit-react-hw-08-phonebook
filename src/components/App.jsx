@@ -1,14 +1,21 @@
 import React from 'react';
+// import { lazy } from 'react';
+import { Global } from 'styles/Global';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
-import Layout from 'pages/Layout/Layout';
+import Layout from 'components/Layout/Layout';
 import Home from 'pages/Home/Home';
 import Login from 'pages/Login/Login';
 import Register from 'pages/Register/Register';
-import { Global } from 'styles/Global';
-
-import { Navigate, Route, Routes } from 'react-router-dom';
 import PageNotFound from 'pages/PageNotFound/PageNotFound';
+import PageContacts from 'pages/PageContacts/PageContacts';
 
+// const Home = lazy(() => import('pages/Home/Home'));
+// const Layout = lazy(() => import('components/Layout/Layout'));
+// const Login = lazy(() => import('pages/Login/Login'));
+// const Register = lazy(() => import('pages/Register/Register'));
+// const PageContacts = lazy(() => import('pages/PageContacts/PageContacts'));
+// const PageNotFound = lazy(() => import('pages/PageNotFound/PageNotFound'));
 const App = () => {
   return (
     <>
@@ -17,10 +24,8 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
-          {/* <Route path="movies/:movieId" element={<MoviePage />}>
-            <Route path="cast" element={<Cast />} />
-            <Route path="reviews" element={<Reviews />} />
-          </Route> */}
+          <Route path="contacts" element={<PageContacts />} />
+
           <Route path="index.html" element={<Navigate to="/" />} />
           <Route path="*" element={<PageNotFound />} />
         </Route>
@@ -31,8 +36,8 @@ const App = () => {
         toastOptions={{
           duration: 2000,
         }}
-      />
-      <ScrollToTop
+      /> */}
+      {/* <ScrollToTop
         showUnder={120}
         style={{
           display: 'flex',

@@ -31,7 +31,7 @@ export const StyledHomeLink = styled(Link)`
   gap: 4px;
   padding: 4px;
   margin-left: 10px;
-  border-radius: 4px;
+
   background: ${props => props.theme.colors.gradientOrange};
   color: ${props => props.theme.colors.white};
   text-decoration: none;

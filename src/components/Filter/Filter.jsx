@@ -1,12 +1,12 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import { StyledDesc, StyledContact } from '../../styles/App.Styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateFilter } from 'redux/contactsSlice';
+import { updateFilter } from 'redux/contacts/contactsSlice';
+import { selectFilter } from 'redux/contacts/selectors';
 
 const Filter = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(state => state.contacts.filter);
+  const filter = useSelector(selectFilter);
   return (
     <StyledContact>
       <StyledDesc>Find contacts by name</StyledDesc>
@@ -21,7 +21,3 @@ const Filter = () => {
   );
 };
 export default Filter;
-
-// Filter.propTypes = {
-//   takeData: PropTypes.func,
-// };

@@ -1,20 +1,27 @@
 import React, { useState } from 'react';
 
 import { StyledTitle, StyledDesc } from '../../styles/App.Styled';
-import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
+
 import { StyledForm, StyledBtn } from './ContactForm.styled';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { addContactThunk } from 'redux/contacts/operations';
+import { selectContacts } from 'redux/contacts/selectors';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setPhone] = useState('');
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(addContact(name, number));
+    const findByName = contacts.find(contact => contact.name === name);
+    if (!findByName) {
+      dispatch(addContactThunk({ name, phone }));
+    } else alert(`${findByName.name} is already in contacts`);
     setName('');
-    setNumber('');
+    setPhone('');
   };
 
   return (
@@ -36,8 +43,8 @@ export const ContactForm = () => {
         name="number"
         pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
         required
-        value={number}
-        onChange={e => setNumber(e.target.value)}
+        value={phone}
+        onChange={e => setPhone(e.target.value)}
         placeholder="XXX-XXX-XXXX"
       />
 
@@ -47,22 +54,3 @@ export const ContactForm = () => {
 };
 
 export default ContactForm;
-
-// const ContactForm = ({ addContact }) => {
-//   const [name, setName] = useState('');
-//   const [number, setNumber] = useState('');
-
-//   const handleChangeInput = e => {
-//     if (e.target.name === 'name') {
-//       setName(e.target.value);
-//     } else if (e.target.name === 'number') {
-//       setNumber(e.target.value);
-//     }
-//   };
-
-//   const handleSubmit = e => {
-//     e.preventDefault();
-//     addContact({ name, number });
-//     setName('');
-//     setNumber('');
-//   };

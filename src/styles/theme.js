@@ -11,16 +11,18 @@ export const theme = {
     background: 'lightblue',
     cardBackground: 'lightgrey',
     btnDelete: 'lightcoral',
+    text: '#23343d',
+    gradientOrange: '#2c76a0',
+    accent: '#121b42',
 
-    text: '#312a20',
+    // text: '#1b2b33',
     black: 'white',
     lightAccent: '#ffc226',
-    accent: '#959707',
+
     muted: '#e2ddc1',
     btnPrimary: '#9dac5c',
     btnSecondary: '#c5cab0',
     error: '#db680a',
-    gradientOrange: 'linear-gradient(141.22deg, #6a6b38 9.4%, #9cb640 91.91%)',
   },
   fonts: {
     body: 'system-ui, sans-serif',

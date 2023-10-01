@@ -51,7 +51,7 @@ export const StyledLogo = styled(NavLink)`
 
 export const StyledLink = styled(NavLink)`
   padding: 11px 16px;
-  border-radius: 4px;
+
   text-decoration: none;
   color: ${props => props.theme.colors.white};
   font-weight: ${props => props.theme.fontWeights.medium};
