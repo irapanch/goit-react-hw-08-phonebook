@@ -52,7 +52,7 @@ export const StyledLogo = styled(NavLink)`
 export const StyledLink = styled(NavLink)`
   padding: 11px 16px;
 
-  text-decoration: none;
+  text-decoration: underline;
   color: ${props => props.theme.colors.white};
   font-weight: ${props => props.theme.fontWeights.medium};
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);

@@ -17,4 +17,7 @@ export const StyledBtn = styled.button`
   background-color: ${props => props.theme.colors.background};
 
   margin-top: 20px;
+  margin-bottom: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 `;

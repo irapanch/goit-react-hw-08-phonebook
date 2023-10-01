@@ -33,3 +33,19 @@ export const registerThunk = createAsyncThunk(
     }
   }
 );
+
+/*
+ * POST @ /users/login
+ * body: { email, password }
+ */
+export const LoginThunk = createAsyncThunk(
+  'login',
+  async (credentials, thunkAPI) => {
+    try {
+      const { data } = await herokuApi.post('/users/login', credentials);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
