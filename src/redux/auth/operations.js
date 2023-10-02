@@ -2,10 +2,9 @@
 // https://connections-api.herokuapp.com/
 
 import axios from 'axios';
-
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const herokuApi = axios.create({
+export const herokuApi = axios.create({
   baseURL: 'https://connections-api.herokuapp.com/',
 });
 

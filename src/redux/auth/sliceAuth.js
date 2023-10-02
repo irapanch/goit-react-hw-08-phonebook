@@ -10,6 +10,7 @@ const initialState = {
   token: '',
   isLoggedIn: false,
   error: '',
+  // loading: false,
 };
 const slice = createSlice({
   name: 'auth',

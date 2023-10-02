@@ -9,6 +9,7 @@ import Login from 'pages/Login/Login';
 import Register from 'pages/Register/Register';
 import PageNotFound from 'pages/PageNotFound/PageNotFound';
 import PageContacts from 'pages/PageContacts/PageContacts';
+import { PrivateRoute } from './Routes/PrivateRoute';
 
 // const Home = lazy(() => import('pages/Home/Home'));
 // const Layout = lazy(() => import('components/Layout/Layout'));
@@ -24,7 +25,14 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
-          <Route path="contacts" element={<PageContacts />} />
+          <Route
+            path="contacts"
+            element={
+              <PrivateRoute>
+                <PageContacts />
+              </PrivateRoute>
+            }
+          />
 
           <Route path="index.html" element={<Navigate to="/" />} />
           <Route path="*" element={<PageNotFound />} />

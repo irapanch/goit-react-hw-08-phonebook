@@ -12,7 +12,7 @@ import { registerThunk } from 'redux/auth/operations';
 import { StyledDesc, StyledTitle } from 'styles/App.Styled';
 
 const Register = () => {
-  const { handleSubmit, register, reset } = useForm();
+  const { handleSubmit, register } = useForm();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const submit = data => {

@@ -17,12 +17,13 @@ import {
 import { LiaPhoneSquareSolid } from 'react-icons/lia';
 import { Loader } from '../Loader/Loader';
 import UserMenu from 'components/UserMenu/UserMenu';
-import { selectIsLoggedIn, selectUser } from 'redux/auth/selectors';
+// import { selectIsLoggedIn, selectUser } from 'redux/auth/selectors';
 import { useSelector } from 'react-redux';
+import { selectIsLoggedIn } from 'redux/auth/selectors';
 
 const Layout = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const { name } = useSelector(selectUser);
+  // const { name } = useSelector(selectUser);
   return (
     <StyledContainer>
       <StyledHeader>
@@ -31,6 +32,7 @@ const Layout = () => {
         </StyledLogo>
         <nav>
           <StyledLink to="/">Home</StyledLink>
+          <StyledLink to="/contacts">Contacts</StyledLink>
 
           {!isLoggedIn && (
             <>
@@ -39,12 +41,7 @@ const Layout = () => {
             </>
           )}
         </nav>
-        {isLoggedIn && (
-          <>
-            <StyledLink to="/contacts">Contacts</StyledLink>
-            <UserMenu />
-          </>
-        )}
+        {isLoggedIn && <UserMenu />}
       </StyledHeader>
       <Suspense fallback={<Loader />}>
         <Outlet />

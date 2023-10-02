@@ -6,21 +6,22 @@ import { StyledLink } from 'components/Layout/Layout.styled';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { LoginThunk } from 'redux/auth/operations';
 import { StyledDesc, StyledTitle } from 'styles/App.Styled';
 
 const Login = () => {
-  const { handleSubmit, register, reset } = useForm();
+  const { handleSubmit, register } = useForm();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
   const submit = data => {
     dispatch(LoginThunk(data))
       .unwrap()
       .then(res => {
         alert(`Welcome, ${res.user.name}!`);
-        // reset();
-        navigate('/contacts');
+
+        navigate(location.state?.from ?? '/');
       })
       .catch(() => alert('Data is not valid! Try again!'));
   };

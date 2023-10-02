@@ -10,7 +10,7 @@ import { selectContacts } from 'redux/contacts/selectors';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
@@ -18,10 +18,10 @@ export const ContactForm = () => {
     e.preventDefault();
     const findByName = contacts.find(contact => contact.name === name);
     if (!findByName) {
-      dispatch(addContactThunk({ name, phone }));
+      dispatch(addContactThunk({ name, number }));
     } else alert(`${findByName.name} is already in contacts`);
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   return (
@@ -43,8 +43,8 @@ export const ContactForm = () => {
         name="number"
         pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
         required
-        value={phone}
-        onChange={e => setPhone(e.target.value)}
+        value={number}
+        onChange={e => setNumber(e.target.value)}
         placeholder="XXX-XXX-XXXX"
       />
 
