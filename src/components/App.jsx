@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // import { lazy } from 'react';
 import { Global } from 'styles/Global';
 import { Navigate, Route, Routes } from 'react-router-dom';
@@ -10,6 +10,10 @@ import Register from 'pages/Register/Register';
 import PageNotFound from 'pages/PageNotFound/PageNotFound';
 import PageContacts from 'pages/PageContacts/PageContacts';
 import { PrivateRoute } from './Routes/PrivateRoute';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectIsRefresh } from 'redux/auth/selectors';
+import { refreshThunk } from 'redux/auth/operations';
+import { Loader } from './Loader/Loader';
 
 // const Home = lazy(() => import('pages/Home/Home'));
 // const Layout = lazy(() => import('components/Layout/Layout'));
@@ -18,7 +22,15 @@ import { PrivateRoute } from './Routes/PrivateRoute';
 // const PageContacts = lazy(() => import('pages/PageContacts/PageContacts'));
 // const PageNotFound = lazy(() => import('pages/PageNotFound/PageNotFound'));
 const App = () => {
-  return (
+  const isRefresh = useSelector(selectIsRefresh);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(refreshThunk());
+  }, [dispatch]);
+
+  return isRefresh ? (
+    <Loader />
+  ) : (
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -38,13 +50,7 @@ const App = () => {
           <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
-      {/* <Toaster
-        position="top-left"
-        reverseOrder={false}
-        toastOptions={{
-          duration: 2000,
-        }}
-      /> */}
+
       {/* <ScrollToTop
         showUnder={120}
         style={{

@@ -69,3 +69,17 @@ export const LogoutThunk = createAsyncThunk('logout', async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const refreshThunk = createAsyncThunk('refresh', async (_, thunkAPI) => {
+  const savedToken = thunkAPI.getState().auth.token;
+
+  if (!savedToken) return thunkAPI.rejectWithValue('You need log in!');
+
+  try {
+    setToken(savedToken);
+    const { data } = await herokuApi.get('users/current');
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});

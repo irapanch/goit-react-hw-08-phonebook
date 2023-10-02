@@ -5,12 +5,14 @@ import {
 import { StyledLink } from 'components/Layout/Layout.styled';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { LoginThunk } from 'redux/auth/operations';
+import { selectIsLoggedIn } from 'redux/auth/selectors';
 import { StyledDesc, StyledTitle } from 'styles/App.Styled';
 
 const Login = () => {
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   const { handleSubmit, register } = useForm();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -25,7 +27,9 @@ const Login = () => {
       })
       .catch(() => alert('Data is not valid! Try again!'));
   };
-
+  if (isLoggedIn) {
+    return <Navigate to="/contacts" />;
+  }
   return (
     <StyledForm onSubmit={handleSubmit(submit)}>
       <StyledTitle>Log In</StyledTitle>
