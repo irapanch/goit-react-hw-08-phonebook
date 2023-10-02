@@ -17,8 +17,8 @@ const Login = () => {
   const submit = data => {
     dispatch(LoginThunk(data))
       .unwrap()
-      .then(() => {
-        alert('Welcome!');
+      .then(res => {
+        alert(`Welcome, ${res.user.name}!`);
         // reset();
         navigate('/contacts');
       })
@@ -46,9 +46,10 @@ const Login = () => {
         type="password"
         // as="input"
         name="password"
-        placeholder="Enter 5-12 symbols"
-        // minLength={5}
-        // maxLength={12}
+        placeholder="Enter password"
+        title="Enter 5-12 symbols"
+        minLength={5}
+        maxLength={12}
         // id="password"
         required
         // autoComplete="current-password"

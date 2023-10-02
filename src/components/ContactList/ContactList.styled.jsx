@@ -13,5 +13,6 @@ export const StyledSpan = styled.span`
 `;
 export const StyledBtnDelete = styled.button`
   width: 70px;
+  padding: 4px 0;
   background-color: ${props => props.theme.colors.btnDelete};
 `;

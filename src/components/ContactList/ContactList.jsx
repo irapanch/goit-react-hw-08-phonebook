@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 // import { removeContact } from 'redux/contactsSlice';
+import { MdPersonRemove } from 'react-icons/md';
 import {
   StyledBtnDelete,
   StyledContactLi,
@@ -51,7 +52,7 @@ export const ContactList = () => {
             <StyledBtnDelete
               onClick={() => dispatch(deleteContactThunk(contact.id))}
             >
-              delete
+              <MdPersonRemove />
             </StyledBtnDelete>
           </StyledContactLi>
         ))}

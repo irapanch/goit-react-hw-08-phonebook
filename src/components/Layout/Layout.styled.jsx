@@ -9,7 +9,7 @@ export const StyledContainer = styled.main`
 
 export const StyledHeader = styled.header`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin: 0 auto;
   padding: 20px 76px;
   top: 0;
