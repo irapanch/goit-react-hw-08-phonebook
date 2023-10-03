@@ -1,6 +1,6 @@
 import {
-  LoginThunk,
-  LogoutThunk,
+  loginThunk,
+  logoutThunk,
   refreshThunk,
   registerThunk,
 } from './operations';
@@ -16,14 +16,13 @@ const initialState = {
   isLoggedIn: false,
   error: '',
   isRefresh: false,
-  // loading: false,
 };
 const slice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: builder => {
     builder
-      .addCase(LogoutThunk.fulfilled, state => {
+      .addCase(logoutThunk.fulfilled, state => {
         return (state = initialState);
       })
       .addCase(refreshThunk.fulfilled, (state, { payload }) => {
@@ -39,7 +38,7 @@ const slice = createSlice({
         state.isRefresh = false;
       })
       .addMatcher(
-        isAnyOf(registerThunk.fulfilled, LoginThunk.fulfilled),
+        isAnyOf(registerThunk.fulfilled, loginThunk.fulfilled),
         (state, { payload }) => {
           state.user = payload.user;
           state.token = payload.token;

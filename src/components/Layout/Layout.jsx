@@ -23,7 +23,7 @@ import { selectIsLoggedIn } from 'redux/auth/selectors';
 
 const Layout = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  // const { name } = useSelector(selectUser);
+
   return (
     <StyledContainer>
       <StyledHeader>
@@ -32,16 +32,18 @@ const Layout = () => {
         </StyledLogo>
         <nav>
           <StyledLink to="/">Home</StyledLink>
-          <StyledLink to="/contacts">Contacts</StyledLink>
-
-          {!isLoggedIn && (
+          {isLoggedIn ? (
+            <>
+              <StyledLink to="/contacts">Contacts</StyledLink>
+              <UserMenu />
+            </>
+          ) : (
             <>
               <StyledLink to="/login">Log in</StyledLink>
               <StyledLink to="/register">Sign up</StyledLink>
             </>
           )}
         </nav>
-        {isLoggedIn && <UserMenu />}
       </StyledHeader>
       <Suspense fallback={<Loader />}>
         <Outlet />

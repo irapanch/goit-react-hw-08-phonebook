@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-// import { removeContact } from 'redux/contactsSlice';
 import { MdPersonRemove } from 'react-icons/md';
 import {
   StyledBtnDelete,

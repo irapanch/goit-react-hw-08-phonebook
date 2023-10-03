@@ -1,10 +1,3 @@
-// export const theme = {
-//   spacing: value => `${value * 4}px`,
-//   colors: {
-//     main: 'white',
-//   },
-// };
-
 export const theme = {
   colors: {
     white: 'black',
@@ -14,15 +7,6 @@ export const theme = {
     text: '#23343d',
     gradientOrange: '#2c76a0',
     accent: '#121b42',
-
-    // text: '#1b2b33',
-    black: 'white',
-    lightAccent: '#ffc226',
-
-    muted: '#e2ddc1',
-    btnPrimary: '#9dac5c',
-    btnSecondary: '#c5cab0',
-    error: '#db680a',
   },
   fonts: {
     body: 'system-ui, sans-serif',

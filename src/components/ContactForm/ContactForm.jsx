@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-
 import { StyledTitle, StyledDesc } from '../../styles/App.Styled';
-
 import { StyledForm, StyledBtn } from './ContactForm.styled';
 
 import { useDispatch, useSelector } from 'react-redux';

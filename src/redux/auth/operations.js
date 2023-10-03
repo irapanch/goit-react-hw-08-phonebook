@@ -1,6 +1,3 @@
-// https://goit-task-manager.herokuapp.com/
-// https://connections-api.herokuapp.com/
-
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
@@ -42,7 +39,7 @@ export const registerThunk = createAsyncThunk(
  * POST @ /users/login
  * body: { email, password }
  */
-export const LoginThunk = createAsyncThunk(
+export const loginThunk = createAsyncThunk(
   'login',
   async (credentials, thunkAPI) => {
     try {
@@ -61,7 +58,7 @@ export const LoginThunk = createAsyncThunk(
  * POST @ /users/logout
  * headers: Authorization: Bearer token
  */
-export const LogoutThunk = createAsyncThunk('logout', async (_, thunkAPI) => {
+export const logoutThunk = createAsyncThunk('logout', async (_, thunkAPI) => {
   try {
     await herokuApi.post('/users/logout');
     clearToken();

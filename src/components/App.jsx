@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-// import { lazy } from 'react';
+
 import { Global } from 'styles/Global';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
@@ -9,18 +9,16 @@ import Login from 'pages/Login/Login';
 import Register from 'pages/Register/Register';
 import PageNotFound from 'pages/PageNotFound/PageNotFound';
 import PageContacts from 'pages/PageContacts/PageContacts';
-import { PrivateRoute } from './Routes/PrivateRoute';
+
+import { PrivateRoute } from './PrivateRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsRefresh } from 'redux/auth/selectors';
 import { refreshThunk } from 'redux/auth/operations';
-import { Loader } from './Loader/Loader';
 
-// const Home = lazy(() => import('pages/Home/Home'));
-// const Layout = lazy(() => import('components/Layout/Layout'));
-// const Login = lazy(() => import('pages/Login/Login'));
-// const Register = lazy(() => import('pages/Register/Register'));
-// const PageContacts = lazy(() => import('pages/PageContacts/PageContacts'));
-// const PageNotFound = lazy(() => import('pages/PageNotFound/PageNotFound'));
+import { Loader } from './Loader/Loader';
+import ScrollToTop from 'react-scroll-up';
+import { StyledUpSpan } from './ContactList/ContactList.styled';
+
 const App = () => {
   const isRefresh = useSelector(selectIsRefresh);
   const dispatch = useDispatch();
@@ -50,26 +48,23 @@ const App = () => {
           <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
-
-      {/* <ScrollToTop
-        showUnder={120}
+      <ScrollToTop
+        showUnder={10}
         style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           bottom: 35,
           background:
-            'linear-gradient(141.22deg,  #6a6b38 9.4%, #9cb640 91.91%)',
-          width: '42px',
-          height: '42px',
+            'linear-gradient(141.22deg,  #344b6b 9.4%, #458aa5 91.91%)',
+          width: '50px',
+          height: '50px',
           padding: '8px',
-          borderRadius: '50%',
           boxShadow: '0px 2px 4px -1px rgba(0, 0, 0, 0.2)',
         }}
       >
         <StyledUpSpan>&#8593;</StyledUpSpan>
-      </ScrollToTop> */}
-
+      </ScrollToTop>
       <Global />
     </>
   );

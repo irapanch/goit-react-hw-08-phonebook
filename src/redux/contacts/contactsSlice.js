@@ -4,7 +4,7 @@ import {
   deleteContactThunk,
   getContactsThunk,
 } from './operations';
-// import { LogoutThunk } from 'redux/auth/operations';
+
 const initialState = {
   contacts: {
     items: [],
@@ -35,9 +35,7 @@ export const contactsSlice = createSlice({
           item => item.id !== payload
         );
       })
-      // .addCase(LogoutThunk.fulfilled, (state, action) => {
-      //   state.contacts = {};
-      // })
+
       .addMatcher(
         isAnyOf(
           getContactsThunk.pending,
